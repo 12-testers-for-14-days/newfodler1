@@ -1,306 +1,992 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Privacy Policy — Supacms</title>
-    <meta name="description" content="Supacms Privacy Policy — learn how we collect, use, store, and protect your personal data when you use our digital signage platform.">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: { sans: ['"Plus Jakarta Sans"', 'sans-serif'] },
-                    colors: { brand: { DEFAULT: '#d4ff00', dark: '#bfe600' }, dark: '#0a0a0a' }
-                }
-            }
-        }
-    </script>
-    <style>
-        .bg-grid {
-            background-size: 40px 40px;
-            background-image: linear-gradient(to right, rgba(0,0,0,0.04) 1px, transparent 1px),
-                              linear-gradient(to bottom, rgba(0,0,0,0.04) 1px, transparent 1px);
-        }
-        .toc-link { transition: all 0.2s; border-left: 2px solid transparent; }
-        .toc-link:hover, .toc-link.active { border-left-color: #d4ff00; color: #0a0a0a; padding-left: 12px; }
-        .section-anchor { scroll-margin-top: 100px; }
-        .prose-section h2 { font-size: 1.4rem; font-weight: 800; color: #0a0a0a; margin-bottom: 0.75rem; margin-top: 2.5rem; padding-top: 2.5rem; border-top: 1px solid #f1f5f9; }
-        .prose-section h2:first-child { margin-top: 0; padding-top: 0; border-top: none; }
-        .prose-section p { color: #475569; line-height: 1.8; margin-bottom: 1rem; font-size: 0.95rem; }
-        .prose-section ul { list-style: none; margin-bottom: 1rem; }
-        .prose-section ul li { color: #475569; font-size: 0.95rem; line-height: 1.8; padding-left: 1.25rem; position: relative; margin-bottom: 0.4rem; }
-        .prose-section ul li::before { content: "→"; position: absolute; left: 0; color: #d4ff00; font-weight: 900; }
-        .prose-section strong { color: #0a0a0a; font-weight: 700; }
-        .prose-section a { color: #0a0a0a; text-decoration: underline; text-underline-offset: 2px; }
-        .highlight-box { background: #f8fafc; border-left: 4px solid #d4ff00; padding: 1rem 1.25rem; border-radius: 0 0.75rem 0.75rem 0; margin: 1.25rem 0; }
-        .highlight-box p { margin: 0; color: #334155; font-weight: 600; font-size: 0.9rem; }
-        .data-card { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 1rem; padding: 1.25rem; margin-bottom: 0.75rem; }
-        .data-card .label { font-size: 0.7rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.1em; color: #94a3b8; margin-bottom: 0.25rem; }
-        .data-card .value { font-weight: 700; color: #0f172a; font-size: 0.9rem; }
-        .data-card .desc { font-size: 0.8rem; color: #64748b; margin-top: 0.25rem; }
-    </style>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Elevare — Redefining Urban Luxury</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --red: #E82C0C;
+    --red-dark: #B01E05;
+    --orange: #FF5500;
+    --black: #0D0A0A;
+    --dark: #1A0E0E;
+    --white: #F5F0EE;
+    --gray: #9A8F8F;
+    --light-bg: #F7F2EE;
+    --grid-color: rgba(255,255,255,0.06);
+    --font-display: 'Syne', sans-serif;
+    --font-body: 'DM Sans', sans-serif;
+    --radius: 999px;
+    --transition: 0.4s cubic-bezier(0.16,1,0.3,1);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { background: var(--black); color: var(--white); font-family: var(--font-body); overflow-x: hidden; }
+
+  /* ── SCROLLBAR ── */
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: var(--black); }
+  ::-webkit-scrollbar-thumb { background: var(--red); border-radius: 3px; }
+
+  /* ── GRID OVERLAY ── */
+  .grid-overlay {
+    position: absolute; inset: 0; pointer-events: none; z-index: 0;
+    background-image:
+      linear-gradient(var(--grid-color) 1px, transparent 1px),
+      linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
+    background-size: 80px 80px;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 20px 48px;
+    background: rgba(13,10,10,0.85);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    transition: padding var(--transition);
+  }
+  nav.scrolled { padding: 14px 48px; }
+  .logo {
+    display: flex; align-items: center; gap: 10px;
+    font-family: var(--font-display); font-size: 1.6rem; font-weight: 800;
+    color: var(--red); text-decoration: none; letter-spacing: -0.5px;
+  }
+  .logo-icon {
+    width: 28px; height: 28px; background: var(--red);
+    clip-path: polygon(0 0,100% 0,100% 65%,50% 65%,50% 100%,0 100%);
+  }
+  .nav-links { display: flex; align-items: center; gap: 8px; }
+  .nav-links a {
+    color: var(--white); text-decoration: none;
+    font-size: 0.9rem; font-weight: 500; letter-spacing: 0.01em;
+    padding: 8px 18px; border-radius: var(--radius);
+    border: 1px solid transparent;
+    transition: background var(--transition), border-color var(--transition);
+  }
+  .nav-links a:hover { background: rgba(255,255,255,0.07); border-color: rgba(255,255,255,0.12); }
+  .btn-consult {
+    background: var(--white)!important; color: var(--black)!important;
+    font-weight: 600!important; border: none!important;
+    padding: 10px 22px!important;
+  }
+  .btn-consult:hover { background: var(--red)!important; color: var(--white)!important; }
+  .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 6px; }
+  .hamburger span { display: block; width: 24px; height: 2px; background: var(--white); border-radius: 2px; transition: var(--transition); }
+
+  /* ── HERO ── */
+  #hero {
+    position: relative; min-height: 100vh;
+    background: linear-gradient(135deg, #0D0A0A 0%, #2A0A00 50%, #E82C0C 100%);
+    display: flex; flex-direction: column; justify-content: flex-end;
+    overflow: hidden; padding: 0 48px 60px;
+  }
+  .hero-images {
+    position: absolute; right: 0; top: 0; bottom: 0;
+    width: 52%; display: flex; gap: 0;
+  }
+  .hero-img-main {
+    flex: 1;
+    background: url('https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=900&q=80') center/cover;
+    position: relative;
+  }
+  .hero-img-main::after {
+    content: ''; position: absolute; inset: 0;
+    background: linear-gradient(to left, transparent 60%, #1a0800 100%);
+  }
+  .hero-img-side {
+    width: 200px;
+    background: url('https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=400&q=80') center/cover;
+    position: relative;
+  }
+  .hero-img-side::after {
+    content: ''; position: absolute; inset: 0;
+    background: linear-gradient(to bottom, rgba(232,44,12,0.5), rgba(255,85,0,0.4));
+  }
+  .hero-content { position: relative; z-index: 2; max-width: 680px; }
+  .hero-tag {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(232,44,12,0.2); border: 1px solid rgba(232,44,12,0.4);
+    padding: 6px 16px; border-radius: var(--radius);
+    font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--orange);
+    margin-bottom: 28px;
+  }
+  .hero-tag::before { content: ''; width: 6px; height: 6px; background: var(--orange); border-radius: 50%; }
+  .hero-title {
+    font-family: var(--font-display); font-size: clamp(3.2rem, 7vw, 6.5rem);
+    font-weight: 800; line-height: 0.95; letter-spacing: -0.03em;
+    color: var(--white); margin-bottom: 32px;
+  }
+  .hero-body { display: flex; align-items: flex-end; justify-content: space-between; gap: 40px; }
+  .hero-desc { max-width: 340px; font-size: 0.95rem; color: rgba(245,240,238,0.65); line-height: 1.7; }
+  .btn-explore {
+    display: inline-flex; align-items: center; gap: 10px; white-space: nowrap;
+    background: var(--orange); color: var(--white);
+    padding: 16px 28px; border-radius: var(--radius);
+    font-family: var(--font-display); font-size: 0.95rem; font-weight: 600;
+    text-decoration: none; border: none; cursor: pointer;
+    transition: background var(--transition), transform var(--transition);
+    flex-shrink: 0;
+  }
+  .btn-explore:hover { background: var(--red); transform: translateX(4px); }
+  .btn-explore .arrow { font-size: 1.1rem; }
+  .hero-stats {
+    position: absolute; bottom: 60px; right: 48px; z-index: 2;
+    display: flex; gap: 32px;
+  }
+  .stat { text-align: center; }
+  .stat-num { font-family: var(--font-display); font-size: 2rem; font-weight: 800; color: var(--white); }
+  .stat-label { font-size: 0.78rem; color: var(--gray); letter-spacing: 0.08em; text-transform: uppercase; }
+
+  /* ── SECTION COMMON ── */
+  section { position: relative; overflow: hidden; }
+  .section-inner { max-width: 1280px; margin: 0 auto; padding: 100px 48px; }
+  .section-tag {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 0.78rem; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--red); font-weight: 600; margin-bottom: 18px;
+  }
+  .section-tag::before { content: ''; width: 20px; height: 2px; background: var(--red); }
+  .section-title {
+    font-family: var(--font-display); font-size: clamp(2rem, 4vw, 3.2rem);
+    font-weight: 800; letter-spacing: -0.03em; line-height: 1.1;
+  }
+  .section-title span { color: var(--red); }
+
+  /* ── MARQUEE ── */
+  .marquee-section { background: var(--red); padding: 18px 0; overflow: hidden; }
+  .marquee-track {
+    display: flex; gap: 60px; animation: marquee 22s linear infinite;
+    white-space: nowrap;
+  }
+  .marquee-track span {
+    font-family: var(--font-display); font-size: 1rem; font-weight: 700;
+    letter-spacing: 0.1em; text-transform: uppercase; color: var(--white);
+    opacity: 0.85; flex-shrink: 0;
+  }
+  .marquee-track span.dot { opacity: 0.4; }
+  @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+  /* ── LISTINGS ── */
+  #listings { background: var(--dark); }
+  .listings-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 20px; margin-bottom: 56px; }
+  .listings-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; }
+  .prop-card {
+    background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 20px; overflow: hidden; cursor: pointer;
+    transition: transform var(--transition), border-color var(--transition);
+  }
+  .prop-card:hover { transform: translateY(-6px); border-color: var(--red); }
+  .prop-card:first-child { grid-column: span 2; }
+  .prop-img {
+    height: 280px; background-size: cover; background-position: center;
+    position: relative;
+  }
+  .prop-card:first-child .prop-img { height: 360px; }
+  .prop-badge {
+    position: absolute; top: 16px; left: 16px;
+    background: var(--red); color: var(--white);
+    font-size: 0.72rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+    padding: 5px 12px; border-radius: var(--radius);
+  }
+  .prop-body { padding: 24px; }
+  .prop-name { font-family: var(--font-display); font-size: 1.2rem; font-weight: 700; margin-bottom: 6px; }
+  .prop-loc { font-size: 0.85rem; color: var(--gray); margin-bottom: 16px; display: flex; align-items: center; gap: 6px; }
+  .prop-loc::before { content: '📍'; font-size: 0.8rem; }
+  .prop-meta { display: flex; gap: 16px; margin-bottom: 20px; }
+  .prop-meta span { font-size: 0.8rem; color: var(--gray); display: flex; align-items: center; gap: 4px; }
+  .prop-foot { display: flex; align-items: center; justify-content: space-between; }
+  .prop-price { font-family: var(--font-display); font-size: 1.4rem; font-weight: 800; color: var(--red); }
+  .btn-sm {
+    background: transparent; border: 1px solid rgba(255,255,255,0.2);
+    color: var(--white); padding: 8px 18px; border-radius: var(--radius);
+    font-size: 0.82rem; cursor: pointer;
+    transition: background var(--transition), border-color var(--transition);
+  }
+  .btn-sm:hover { background: var(--red); border-color: var(--red); }
+  .btn-primary {
+    background: var(--red); color: var(--white); border: none;
+    padding: 14px 32px; border-radius: var(--radius);
+    font-family: var(--font-display); font-size: 0.95rem; font-weight: 700;
+    cursor: pointer; text-decoration: none; display: inline-block;
+    transition: background var(--transition), transform var(--transition);
+  }
+  .btn-primary:hover { background: var(--orange); transform: translateY(-2px); }
+
+  /* ── ABOUT ── */
+  #about { background: var(--black); }
+  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+  .about-visual { position: relative; height: 560px; }
+  .about-img-1 {
+    position: absolute; inset: 0;
+    border-radius: 24px; overflow: hidden;
+  }
+  .about-img-1 img { width: 100%; height: 100%; object-fit: cover; }
+  .about-img-2 {
+    position: absolute; bottom: -30px; right: -30px; width: 220px; height: 220px;
+    border-radius: 20px; overflow: hidden;
+    border: 6px solid var(--black);
+  }
+  .about-img-2 img { width: 100%; height: 100%; object-fit: cover; }
+  .about-accent {
+    position: absolute; top: -20px; left: -20px;
+    width: 100px; height: 100px; background: var(--red); border-radius: 20px;
+    opacity: 0.15;
+  }
+  .about-years {
+    position: absolute; top: 30px; right: 30px;
+    background: var(--red); border-radius: 16px;
+    padding: 20px 24px; text-align: center;
+  }
+  .about-years strong { font-family: var(--font-display); font-size: 2.2rem; font-weight: 800; display: block; }
+  .about-years span { font-size: 0.78rem; opacity: 0.85; }
+  .about-text { }
+  .about-text p { color: rgba(245,240,238,0.65); line-height: 1.8; font-size: 0.97rem; margin-bottom: 24px; }
+  .about-features { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 36px; }
+  .about-feat { display: flex; gap: 14px; align-items: flex-start; }
+  .feat-icon {
+    width: 44px; height: 44px; background: rgba(232,44,12,0.12); border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.2rem; flex-shrink: 0;
+  }
+  .feat-label { font-family: var(--font-display); font-size: 0.9rem; font-weight: 700; margin-bottom: 4px; }
+  .feat-sub { font-size: 0.8rem; color: var(--gray); }
+
+  /* ── HOW IT WORKS ── */
+  #process { background: var(--light-bg); color: var(--black); }
+  #process .section-title { color: var(--black); }
+  #process .section-tag { }
+  .process-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 2px; margin-top: 60px; }
+  .process-step {
+    background: rgba(0,0,0,0.03); border: 1px solid rgba(0,0,0,0.07);
+    padding: 40px 32px; position: relative;
+    transition: background var(--transition);
+  }
+  .process-step:hover { background: var(--red); color: var(--white); }
+  .process-step:hover .step-num { color: rgba(255,255,255,0.2); }
+  .process-step:hover .step-icon { background: rgba(255,255,255,0.15); }
+  .process-step:hover .step-desc { color: rgba(255,255,255,0.75); }
+  .step-num {
+    font-family: var(--font-display); font-size: 5rem; font-weight: 800;
+    color: rgba(0,0,0,0.06); line-height: 1; margin-bottom: 24px;
+    transition: color var(--transition);
+  }
+  .step-icon {
+    width: 52px; height: 52px; background: rgba(232,44,12,0.1); border-radius: 14px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.4rem; margin-bottom: 20px;
+    transition: background var(--transition);
+  }
+  .step-title { font-family: var(--font-display); font-size: 1.1rem; font-weight: 700; margin-bottom: 12px; }
+  .step-desc { font-size: 0.88rem; color: #666; line-height: 1.7; transition: color var(--transition); }
+
+  /* ── TESTIMONIALS ── */
+  #testimonials { background: var(--dark); }
+  .testimonials-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; margin-top: 56px; }
+  .testi-card {
+    background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 24px; padding: 36px; position: relative;
+    transition: border-color var(--transition), transform var(--transition);
+  }
+  .testi-card:hover { border-color: var(--red); transform: translateY(-4px); }
+  .testi-card.featured { background: var(--red); border-color: var(--red); }
+  .testi-quote { font-size: 3rem; color: var(--red); line-height: 1; margin-bottom: 8px; font-family: Georgia, serif; }
+  .testi-card.featured .testi-quote { color: rgba(255,255,255,0.4); }
+  .testi-text { font-size: 0.95rem; line-height: 1.75; color: rgba(245,240,238,0.8); margin-bottom: 28px; }
+  .testi-author { display: flex; align-items: center; gap: 14px; }
+  .testi-avatar {
+    width: 48px; height: 48px; border-radius: 50%; object-fit: cover;
+    background: var(--red); display: flex; align-items: center; justify-content: center;
+    font-family: var(--font-display); font-weight: 700; font-size: 1rem;
+    flex-shrink: 0;
+  }
+  .testi-name { font-family: var(--font-display); font-size: 0.95rem; font-weight: 700; }
+  .testi-role { font-size: 0.78rem; color: var(--gray); }
+  .testi-card.featured .testi-role { color: rgba(255,255,255,0.65); }
+  .stars { color: #FFB800; font-size: 0.85rem; letter-spacing: 2px; margin-bottom: 16px; }
+
+  /* ── FAQS ── */
+  #faqs { background: var(--black); }
+  .faqs-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; margin-top: 56px; }
+  .faq-list { display: flex; flex-direction: column; gap: 0; }
+  .faq-item {
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    overflow: hidden;
+  }
+  .faq-q {
+    width: 100%; background: none; border: none; color: var(--white);
+    font-family: var(--font-display); font-size: 1rem; font-weight: 700;
+    text-align: left; padding: 22px 0; cursor: pointer;
+    display: flex; align-items: center; justify-content: space-between; gap: 20px;
+  }
+  .faq-arrow {
+    width: 32px; height: 32px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.15);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.9rem; transition: background var(--transition), transform var(--transition);
+    flex-shrink: 0;
+  }
+  .faq-item.open .faq-arrow { background: var(--red); border-color: var(--red); transform: rotate(45deg); }
+  .faq-a {
+    max-height: 0; overflow: hidden;
+    font-size: 0.9rem; color: rgba(245,240,238,0.65); line-height: 1.75;
+    transition: max-height 0.4s ease, padding 0.4s ease;
+    padding: 0;
+  }
+  .faq-item.open .faq-a { max-height: 200px; padding-bottom: 20px; }
+  .faq-visual {
+    background: url('https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=600&q=80') center/cover;
+    border-radius: 24px; height: 480px; position: relative; overflow: hidden;
+  }
+  .faq-visual::after {
+    content: ''; position: absolute; inset: 0;
+    background: linear-gradient(to top, rgba(232,44,12,0.7), transparent 50%);
+  }
+  .faq-visual-text {
+    position: absolute; bottom: 32px; left: 32px; right: 32px; z-index: 1;
+  }
+  .faq-visual-text strong { font-family: var(--font-display); font-size: 1.3rem; font-weight: 800; display: block; margin-bottom: 8px; }
+  .faq-visual-text span { font-size: 0.85rem; opacity: 0.8; }
+
+  /* ── CTA ── */
+  #cta {
+    background: linear-gradient(135deg, var(--red-dark) 0%, var(--red) 50%, var(--orange) 100%);
+    position: relative; overflow: hidden;
+  }
+  #cta .grid-overlay { opacity: 0.4; }
+  .cta-inner { max-width: 1280px; margin: 0 auto; padding: 100px 48px; position: relative; z-index: 1; }
+  .cta-wrap { display: flex; align-items: center; justify-content: space-between; gap: 60px; }
+  .cta-text .section-tag { color: rgba(255,255,255,0.7); }
+  .cta-text .section-tag::before { background: rgba(255,255,255,0.5); }
+  .cta-title { font-family: var(--font-display); font-size: clamp(2.4rem, 4vw, 3.8rem); font-weight: 800; letter-spacing: -0.03em; line-height: 1.05; max-width: 560px; }
+  .cta-sub { margin-top: 20px; font-size: 1rem; opacity: 0.8; max-width: 440px; line-height: 1.7; }
+  .cta-actions { display: flex; gap: 16px; flex-shrink: 0; }
+  .btn-white {
+    background: var(--white); color: var(--black); border: none;
+    padding: 16px 32px; border-radius: var(--radius);
+    font-family: var(--font-display); font-size: 0.95rem; font-weight: 700;
+    cursor: pointer; transition: background var(--transition), transform var(--transition);
+    white-space: nowrap;
+  }
+  .btn-white:hover { background: var(--black); color: var(--white); transform: translateY(-2px); }
+  .btn-outline-white {
+    background: transparent; color: var(--white);
+    border: 2px solid rgba(255,255,255,0.5);
+    padding: 14px 28px; border-radius: var(--radius);
+    font-family: var(--font-display); font-size: 0.95rem; font-weight: 700;
+    cursor: pointer; transition: background var(--transition), border-color var(--transition);
+    white-space: nowrap;
+  }
+  .btn-outline-white:hover { background: rgba(255,255,255,0.1); border-color: var(--white); }
+  .cta-bg-num {
+    position: absolute; right: 48px; bottom: -30px;
+    font-family: var(--font-display); font-size: 20rem; font-weight: 800;
+    color: rgba(255,255,255,0.05); line-height: 1; pointer-events: none; user-select: none;
+  }
+
+  /* ── NEWSLETTER ── */
+  #newsletter { background: var(--dark); }
+  .newsletter-wrap {
+    display: flex; align-items: center; justify-content: space-between; gap: 60px;
+  }
+  .newsletter-text .section-title { margin-bottom: 16px; }
+  .newsletter-text p { color: rgba(245,240,238,0.6); font-size: 0.95rem; line-height: 1.7; }
+  .newsletter-form { display: flex; gap: 12px; flex-shrink: 0; }
+  .newsletter-form input {
+    background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12);
+    color: var(--white); padding: 14px 22px; border-radius: var(--radius);
+    font-family: var(--font-body); font-size: 0.95rem; outline: none; width: 300px;
+    transition: border-color var(--transition);
+  }
+  .newsletter-form input:focus { border-color: var(--red); }
+  .newsletter-form input::placeholder { color: var(--gray); }
+
+  /* ── FOOTER ── */
+  footer { background: #080505; border-top: 1px solid rgba(255,255,255,0.06); }
+  .footer-inner { max-width: 1280px; margin: 0 auto; padding: 60px 48px 40px; }
+  .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 60px; margin-bottom: 48px; }
+  .footer-brand .logo { font-size: 1.4rem; margin-bottom: 16px; display: flex; }
+  .footer-brand p { font-size: 0.88rem; color: var(--gray); line-height: 1.7; max-width: 260px; }
+  .footer-col h4 { font-family: var(--font-display); font-size: 0.88rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gray); margin-bottom: 20px; }
+  .footer-col a { display: block; color: rgba(245,240,238,0.65); text-decoration: none; font-size: 0.9rem; margin-bottom: 10px; transition: color var(--transition); }
+  .footer-col a:hover { color: var(--red); }
+  .footer-bottom { display: flex; align-items: center; justify-content: space-between; border-top: 1px solid rgba(255,255,255,0.06); padding-top: 28px; }
+  .footer-bottom p { font-size: 0.82rem; color: var(--gray); }
+  .social-links { display: flex; gap: 10px; }
+  .social-link {
+    width: 38px; height: 38px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.12);
+    display: flex; align-items: center; justify-content: center; font-size: 0.85rem;
+    color: var(--white); text-decoration: none; transition: background var(--transition), border-color var(--transition);
+  }
+  .social-link:hover { background: var(--red); border-color: var(--red); }
+
+  /* ── MODAL ── */
+  .modal-overlay {
+    position: fixed; inset: 0; z-index: 999;
+    background: rgba(0,0,0,0.8); backdrop-filter: blur(8px);
+    display: flex; align-items: center; justify-content: center;
+    opacity: 0; pointer-events: none;
+    transition: opacity 0.3s ease;
+  }
+  .modal-overlay.active { opacity: 1; pointer-events: all; }
+  .modal {
+    background: var(--dark); border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 28px; width: 90%; max-width: 520px;
+    padding: 48px; position: relative;
+    transform: translateY(30px) scale(0.97);
+    transition: transform 0.4s cubic-bezier(0.16,1,0.3,1);
+  }
+  .modal-overlay.active .modal { transform: translateY(0) scale(1); }
+  .modal-close {
+    position: absolute; top: 20px; right: 20px;
+    width: 36px; height: 36px; border-radius: 50%;
+    background: rgba(255,255,255,0.06); border: none; color: var(--white);
+    font-size: 1rem; cursor: pointer; display: flex; align-items: center; justify-content: center;
+    transition: background var(--transition);
+  }
+  .modal-close:hover { background: var(--red); }
+  .modal-tag { font-size: 0.75rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--red); font-weight: 600; margin-bottom: 12px; }
+  .modal-title { font-family: var(--font-display); font-size: 1.8rem; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 8px; }
+  .modal-sub { font-size: 0.88rem; color: var(--gray); margin-bottom: 32px; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .form-group { margin-bottom: 16px; }
+  .form-group label { display: block; font-size: 0.78rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--gray); margin-bottom: 8px; }
+  .form-group input, .form-group select, .form-group textarea {
+    width: 100%; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
+    color: var(--white); padding: 13px 16px; border-radius: 12px;
+    font-family: var(--font-body); font-size: 0.9rem; outline: none;
+    transition: border-color var(--transition);
+  }
+  .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(--red); }
+  .form-group textarea { resize: vertical; min-height: 90px; }
+  .form-group select option { background: var(--dark); }
+  .btn-submit {
+    width: 100%; background: var(--red); color: var(--white); border: none;
+    padding: 16px; border-radius: 12px;
+    font-family: var(--font-display); font-size: 1rem; font-weight: 700;
+    cursor: pointer; margin-top: 8px;
+    transition: background var(--transition), transform var(--transition);
+  }
+  .btn-submit:hover { background: var(--orange); transform: translateY(-2px); }
+
+  /* ── ANIMATIONS ── */
+  .fade-up { opacity: 0; transform: translateY(40px); transition: opacity 0.7s ease, transform 0.7s ease; }
+  .fade-up.visible { opacity: 1; transform: translateY(0); }
+  .fade-up:nth-child(2) { transition-delay: 0.1s; }
+  .fade-up:nth-child(3) { transition-delay: 0.2s; }
+  .fade-up:nth-child(4) { transition-delay: 0.3s; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 1024px) {
+    .listings-grid { grid-template-columns: 1fr 1fr; }
+    .prop-card:first-child { grid-column: span 2; }
+    .about-grid { grid-template-columns: 1fr; gap: 48px; }
+    .about-visual { height: 400px; }
+    .process-grid { grid-template-columns: repeat(2,1fr); }
+    .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
+    .faqs-grid { grid-template-columns: 1fr; }
+    .faq-visual { height: 300px; }
+  }
+  @media (max-width: 768px) {
+    nav { padding: 16px 24px; }
+    nav.scrolled { padding: 12px 24px; }
+    .nav-links { display: none; flex-direction: column; gap: 0; position: absolute; top: 100%; left: 0; right: 0; background: rgba(13,10,10,0.98); border-bottom: 1px solid rgba(255,255,255,0.08); padding: 16px 24px; }
+    .nav-links.open { display: flex; }
+    .nav-links a { padding: 12px 16px; border-radius: 8px; }
+    .hamburger { display: flex; }
+    #hero { padding: 120px 24px 48px; min-height: auto; }
+    .hero-images { display: none; }
+    .hero-title { font-size: 3rem; }
+    .hero-body { flex-direction: column; align-items: flex-start; }
+    .hero-stats { position: static; margin-top: 32px; }
+    .section-inner { padding: 70px 24px; }
+    .listings-head { flex-direction: column; align-items: flex-start; }
+    .listings-grid { grid-template-columns: 1fr; }
+    .prop-card:first-child { grid-column: span 1; }
+    .testimonials-grid { grid-template-columns: 1fr; }
+    .process-grid { grid-template-columns: 1fr; }
+    .cta-wrap { flex-direction: column; }
+    .cta-actions { flex-direction: column; width: 100%; }
+    .newsletter-wrap { flex-direction: column; }
+    .newsletter-form { flex-direction: column; width: 100%; }
+    .newsletter-form input { width: 100%; }
+    .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+    .footer-bottom { flex-direction: column; gap: 16px; }
+    .form-row { grid-template-columns: 1fr; }
+    .modal { padding: 32px 24px; }
+    .about-features { grid-template-columns: 1fr; }
+  }
+</style>
 </head>
-<body class="bg-slate-50 text-slate-800 font-sans antialiased">
+<body>
 
-    <div class="fixed inset-0 bg-grid opacity-60 pointer-events-none z-0"></div>
+<!-- NAV -->
+<nav id="navbar">
+  <a href="#" class="logo"><span class="logo-icon"></span> Elevare</a>
+  <div class="nav-links" id="navLinks">
+    <a href="#about">About</a>
+    <a href="#listings">Projects</a>
+    <a href="#testimonials">News</a>
+    <a href="#faqs">Contact</a>
+    <a href="#" class="btn-consult" onclick="openModal(); return false;">Get consultation</a>
+  </div>
+  <div class="hamburger" id="hamburger" onclick="toggleNav()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
 
-    <!-- NAV -->
-    <nav class="fixed w-full top-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-100">
-        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-            <a href="/" class="flex items-center gap-2 font-extrabold text-2xl tracking-tight text-dark">
-                <div class="w-8 h-8 bg-brand rounded flex items-center justify-center text-dark text-lg">S</div>
-                Supacms
-            </a>
-            <div class="hidden md:flex items-center gap-8 font-semibold text-sm">
-                <a href="/" class="hover:text-brand-dark transition-colors">Home</a>
-                <a href="/pricing.html" class="hover:text-brand-dark transition-colors">Pricing</a>
-                <a href="/terms.html" class="hover:text-brand-dark transition-colors">Terms of Service</a>
-                <a href="/refunds.html" class="hover:text-brand-dark transition-colors">Refunds</a>
-            </div>
-            <div class="flex items-center gap-4">
-                <a href="app.html" class="text-sm font-bold text-dark hover:text-slate-600 transition-colors hidden md:block">Login</a>
-                <a href="pricing.html" class="bg-dark text-white px-6 py-2.5 rounded-full text-sm font-bold hover:bg-slate-800 transition-all shadow-lg hover:-translate-y-0.5">Get Started</a>
-            </div>
-        </div>
-    </nav>
-
-    <!-- HERO HEADER -->
-    <div class="pt-32 pb-12 px-6 bg-white border-b border-slate-200 relative z-10">
-        <div class="max-w-4xl mx-auto">
-            <div class="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-slate-400 mb-4">
-                <a href="/" class="hover:text-dark transition-colors">Home</a>
-                <span>/</span>
-                <span class="text-dark">Privacy Policy</span>
-            </div>
-            <div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
-                <div>
-                    <div class="inline-block bg-brand/20 border border-brand text-dark font-bold px-3 py-1 rounded-full text-xs uppercase tracking-widest mb-4">Legal</div>
-                    <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight text-dark">Privacy Policy</h1>
-                    <p class="text-slate-500 mt-3 font-medium">Your privacy matters. Here's exactly how we handle your data.</p>
-                </div>
-                <div class="shrink-0 text-sm text-slate-400 font-medium bg-slate-50 border border-slate-200 rounded-xl px-4 py-3">
-                    <div class="font-bold text-slate-600 mb-0.5">Last Updated</div>
-                    March 15, 2026
-                </div>
-            </div>
-
-            <!-- Legal nav pills -->
-            <div class="flex gap-3 mt-8 flex-wrap">
-                <a href="terms.html" class="bg-white border border-slate-200 text-slate-600 font-bold px-4 py-2 rounded-full text-xs hover:border-dark transition-colors">Terms of Service</a>
-                <span class="bg-dark text-white font-bold px-4 py-2 rounded-full text-xs">Privacy Policy</span>
-                <a href="refunds.html" class="bg-white border border-slate-200 text-slate-600 font-bold px-4 py-2 rounded-full text-xs hover:border-dark transition-colors">Refund Policy</a>
-            </div>
-        </div>
+<!-- HERO -->
+<section id="hero">
+  <div class="grid-overlay"></div>
+  <div class="hero-images">
+    <div class="hero-img-main"></div>
+    <div class="hero-img-side"></div>
+  </div>
+  <div class="hero-content">
+    <div class="hero-tag">Premium Real Estate</div>
+    <h1 class="hero-title">Redefining<br>Urban Luxury<br>Landscapes</h1>
+    <div class="hero-body">
+      <p class="hero-desc">Experience unparalleled access to curated luxury homes, urban penthouses, and exclusive estates tailored to your sophisticated lifestyle. Our dedication ensures your perfect match.</p>
+      <a href="#listings" class="btn-explore">Explore now <span class="arrow">→</span></a>
     </div>
+  </div>
+  <div class="hero-stats">
+    <div class="stat"><div class="stat-num">1.2K+</div><div class="stat-label">Properties</div></div>
+    <div class="stat"><div class="stat-num">98%</div><div class="stat-label">Client Rate</div></div>
+    <div class="stat"><div class="stat-num">15+</div><div class="stat-label">Years Exp.</div></div>
+  </div>
+</section>
 
-    <!-- MAIN LAYOUT -->
-    <div class="max-w-4xl mx-auto px-6 py-16 relative z-10">
-        <div class="flex gap-12">
+<!-- MARQUEE -->
+<div class="marquee-section">
+  <div class="marquee-track">
+    <span>Luxury Residences</span><span class="dot">✦</span>
+    <span>Urban Penthouses</span><span class="dot">✦</span>
+    <span>Exclusive Estates</span><span class="dot">✦</span>
+    <span>Premium Villas</span><span class="dot">✦</span>
+    <span>City Lofts</span><span class="dot">✦</span>
+    <span>Waterfront Properties</span><span class="dot">✦</span>
+    <span>Luxury Residences</span><span class="dot">✦</span>
+    <span>Urban Penthouses</span><span class="dot">✦</span>
+    <span>Exclusive Estates</span><span class="dot">✦</span>
+    <span>Premium Villas</span><span class="dot">✦</span>
+    <span>City Lofts</span><span class="dot">✦</span>
+    <span>Waterfront Properties</span><span class="dot">✦</span>
+  </div>
+</div>
 
-            <!-- TOC Sidebar -->
-            <aside class="hidden lg:block w-56 shrink-0">
-                <div class="sticky top-28">
-                    <div class="text-xs font-black uppercase tracking-widest text-slate-400 mb-4">Contents</div>
-                    <nav class="space-y-1 text-sm font-semibold text-slate-500" id="toc">
-                        <a href="#overview" class="toc-link block py-1.5 pl-3">1. Overview</a>
-                        <a href="#what-we-collect" class="toc-link block py-1.5 pl-3">2. What We Collect</a>
-                        <a href="#how-we-collect" class="toc-link block py-1.5 pl-3">3. How We Collect</a>
-                        <a href="#how-we-use" class="toc-link block py-1.5 pl-3">4. How We Use Data</a>
-                        <a href="#sharing" class="toc-link block py-1.5 pl-3">5. Sharing Data</a>
-                        <a href="#cookies" class="toc-link block py-1.5 pl-3">6. Cookies</a>
-                        <a href="#storage" class="toc-link block py-1.5 pl-3">7. Storage & Security</a>
-                        <a href="#retention" class="toc-link block py-1.5 pl-3">8. Data Retention</a>
-                        <a href="#your-rights" class="toc-link block py-1.5 pl-3">9. Your Rights</a>
-                        <a href="#third-party" class="toc-link block py-1.5 pl-3">10. Third-Party Services</a>
-                        <a href="#children" class="toc-link block py-1.5 pl-3">11. Children's Privacy</a>
-                        <a href="#changes" class="toc-link block py-1.5 pl-3">12. Policy Changes</a>
-                        <a href="#contact" class="toc-link block py-1.5 pl-3">13. Contact Us</a>
-                    </nav>
-                </div>
-            </aside>
-
-            <!-- Content -->
-            <div class="flex-1 bg-white rounded-3xl border border-slate-200 shadow-xl p-8 md:p-12 prose-section">
-
-                <div class="highlight-box mb-8">
-                    <p>We believe privacy should be simple. This policy explains in plain language what data we collect, why we collect it, and what you can do about it. We do not sell your personal data. Ever.</p>
-                </div>
-
-                <h2 id="overview" class="section-anchor">1. Overview</h2>
-                <p>This Privacy Policy applies to all users of the Supacms platform, including visitors to our website and registered account holders. It explains how Supacms ("we", "us", "our") collects, processes, stores, and protects your personal information.</p>
-                <p>By using the Service, you consent to the data practices described in this Privacy Policy. If you do not agree with this policy, please do not use our Service.</p>
-
-                <h2 id="what-we-collect" class="section-anchor">2. What Data We Collect</h2>
-                <p>We only collect data that is necessary to provide and improve the Service. Here's a breakdown of the categories:</p>
-
-                <div class="data-card">
-                    <div class="label">Account Information</div>
-                    <div class="value">Name, Email Address, Company Name</div>
-                    <div class="desc">Provided when you register for an account.</div>
-                </div>
-                <div class="data-card">
-                    <div class="label">Billing Information</div>
-                    <div class="value">Payment method details (processed by our Merchant of Record)</div>
-                    <div class="desc">We do not store your full card number on our servers. Payment data is handled securely by our third-party payment processor.</div>
-                </div>
-                <div class="data-card">
-                    <div class="label">Usage & Device Data</div>
-                    <div class="value">Screen connection logs, playlist activity, login timestamps, IP addresses</div>
-                    <div class="desc">Collected automatically to ensure platform reliability and detect anomalies.</div>
-                </div>
-                <div class="data-card">
-                    <div class="label">User Content</div>
-                    <div class="value">Images, videos, text, and HTML files you upload</div>
-                    <div class="desc">Stored securely on our cloud infrastructure solely to deliver the Service to your screens.</div>
-                </div>
-                <div class="data-card">
-                    <div class="label">Communications</div>
-                    <div class="value">Support emails, feedback messages</div>
-                    <div class="desc">Kept to resolve your enquiry and improve our support experience.</div>
-                </div>
-
-                <h2 id="how-we-collect" class="section-anchor">3. How We Collect Data</h2>
-                <p>We collect data through the following means:</p>
-                <ul>
-                    <li><strong>Directly from you</strong> — when you register, subscribe, upload content, or contact us</li>
-                    <li><strong>Automatically</strong> — via server logs, device pairing events, and usage analytics</li>
-                    <li><strong>From third parties</strong> — our payment processor shares transaction confirmation data with us</li>
-                    <li><strong>Cookies and local storage</strong> — to maintain your session and preferences (see Section 6)</li>
-                </ul>
-
-                <h2 id="how-we-use" class="section-anchor">4. How We Use Your Data</h2>
-                <p>We use the data we collect for the following purposes:</p>
-                <ul>
-                    <li><strong>Service delivery:</strong> To operate, maintain, and deliver the Supacms platform</li>
-                    <li><strong>Account management:</strong> To create and manage your account, authenticate logins, and process plan upgrades</li>
-                    <li><strong>Billing & payments:</strong> To process subscription fees, issue invoices, and handle refund requests</li>
-                    <li><strong>Customer support:</strong> To respond to your questions, troubleshoot issues, and resolve disputes</li>
-                    <li><strong>Service improvement:</strong> To analyse usage patterns and improve platform performance and features</li>
-                    <li><strong>Security:</strong> To detect fraud, prevent abuse, and protect the platform and its users</li>
-                    <li><strong>Legal compliance:</strong> To meet applicable legal obligations, resolve disputes, and enforce our agreements</li>
-                    <li><strong>Communications:</strong> To send important service updates, security alerts, and (where you've opted in) product news</li>
-                </ul>
-                <p>We do not use your data for advertising. We do not build advertising profiles or sell your data to ad networks, data brokers, or any third parties.</p>
-
-                <h2 id="sharing" class="section-anchor">5. Data Sharing & Disclosure</h2>
-                <p>We do not sell, trade, or rent your personal information to any third party. We may share your data only in the following limited circumstances:</p>
-                <ul>
-                    <li><strong>Service providers:</strong> We share data with trusted third-party vendors who help us run the platform (e.g., cloud hosting via Supabase/AWS, payment processing). These vendors are contractually bound to protect your data and may not use it for their own purposes.</li>
-                    <li><strong>Legal obligations:</strong> We may disclose your data if required to do so by law, court order, or governmental authority.</li>
-                    <li><strong>Protection of rights:</strong> We may disclose data to enforce our Terms of Service, protect the safety and security of our users, or investigate fraud.</li>
-                    <li><strong>Business transfers:</strong> In the event of a merger, acquisition, or sale of substantially all assets, your data may be transferred. We will notify you via email and a prominent notice on the platform prior to any such transfer.</li>
-                </ul>
-
-                <h2 id="cookies" class="section-anchor">6. Cookies & Tracking</h2>
-                <p>We use a minimal number of cookies strictly necessary to operate the Service. We do not use advertising cookies or cross-site tracking.</p>
-                <ul>
-                    <li><strong>Session cookies:</strong> Keep you logged in while using the dashboard. These are deleted when you close your browser.</li>
-                    <li><strong>Preference cookies:</strong> Remember your dashboard settings and UI preferences.</li>
-                    <li><strong>Analytics cookies:</strong> Anonymous usage data to understand how the platform is used so we can improve it (e.g., page load performance, feature usage frequency).</li>
-                </ul>
-                <p>You can disable cookies in your browser settings. Note that disabling session cookies will prevent you from logging in to the Service.</p>
-
-                <h2 id="storage" class="section-anchor">7. Data Storage & Security</h2>
-                <p>Your data is stored on secure cloud infrastructure provided by Supabase, built on Amazon Web Services (AWS). We implement industry-standard security measures including:</p>
-                <ul>
-                    <li>TLS/SSL encryption for all data transmitted between your browser and our servers</li>
-                    <li>Encrypted storage for sensitive account data</li>
-                    <li>Access controls limiting which personnel can access customer data</li>
-                    <li>Regular security reviews and vulnerability assessments</li>
-                    <li>Automated backups to prevent data loss</li>
-                </ul>
-                <p>While we take all reasonable precautions, no method of transmission or storage is 100% secure. In the event of a data breach that affects your personal information, we will notify you within 72 hours of becoming aware of the breach.</p>
-
-                <h2 id="retention" class="section-anchor">8. Data Retention</h2>
-                <p>We retain your data only for as long as necessary to fulfil the purposes outlined in this policy or as required by law.</p>
-                <ul>
-                    <li><strong>Active accounts:</strong> Data is retained for the duration of your account</li>
-                    <li><strong>After cancellation:</strong> We retain account data for 90 days post-cancellation to allow for reactivation and dispute resolution, after which it is permanently deleted</li>
-                    <li><strong>Billing records:</strong> Retained for 7 years to comply with applicable accounting and tax laws</li>
-                    <li><strong>Support communications:</strong> Retained for 2 years after the issue was resolved</li>
-                </ul>
-                <p>You may request earlier deletion of your data at any time (see Section 9 — Your Rights).</p>
-
-                <h2 id="your-rights" class="section-anchor">9. Your Rights</h2>
-                <p>Depending on your location and applicable law, you may have the following rights regarding your personal data:</p>
-                <ul>
-                    <li><strong>Right of access:</strong> Request a copy of the personal data we hold about you</li>
-                    <li><strong>Right to rectification:</strong> Request corrections to any inaccurate personal data</li>
-                    <li><strong>Right to erasure:</strong> Request deletion of your personal data ("right to be forgotten")</li>
-                    <li><strong>Right to restrict processing:</strong> Request that we limit how we use your data in certain circumstances</li>
-                    <li><strong>Right to data portability:</strong> Request your data in a machine-readable format</li>
-                    <li><strong>Right to object:</strong> Object to certain types of data processing</li>
-                    <li><strong>Right to withdraw consent:</strong> Where processing is based on consent, withdraw it at any time</li>
-                </ul>
-                <div class="highlight-box">
-                    <p>To exercise any of these rights, email us at <a href="mailto:nabeelsaleemshaikh@gmail.com">nabeelsaleemshaikh@gmail.com</a> with the subject line "Privacy Request". We will respond within 30 days.</p>
-                </div>
-
-                <h2 id="third-party" class="section-anchor">10. Third-Party Services</h2>
-                <p>The Service integrates with the following third-party services. Each has its own privacy policy:</p>
-                <ul>
-                    <li><strong>Supabase / AWS:</strong> Cloud database and file storage infrastructure</li>
-                    <li><strong>Payment Processor (Merchant of Record):</strong> Handles billing and subscription payments securely</li>
-                    <li><strong>Analytics provider:</strong> Anonymous platform usage statistics</li>
-                </ul>
-                <p>Our website may contain links to third-party sites. We are not responsible for the privacy practices of those sites and encourage you to read their privacy policies.</p>
-
-                <h2 id="children" class="section-anchor">11. Children's Privacy</h2>
-                <p>The Service is not directed at individuals under the age of 18, and we do not knowingly collect personal data from children. If you believe a child under 18 has provided us with personal information, please contact us immediately at <a href="mailto:nabeelsaleemshaikh@gmail.com">nabeelsaleemshaikh@gmail.com</a> and we will take prompt action to delete that information.</p>
-
-                <h2 id="changes" class="section-anchor">12. Changes to This Policy</h2>
-                <p>We may update this Privacy Policy from time to time to reflect changes in our practices or legal requirements. When we make material changes, we will notify you via:</p>
-                <ul>
-                    <li>Email to the address associated with your account</li>
-                    <li>A prominent notice on our website and dashboard</li>
-                </ul>
-                <p>The "Last Updated" date at the top of this page will always reflect the most recent revision. We encourage you to review this policy periodically.</p>
-
-                <h2 id="contact" class="section-anchor">13. Contact Us</h2>
-                <p>If you have any questions, concerns, or requests about this Privacy Policy or how we handle your personal data, please contact us:</p>
-                <div class="highlight-box">
-                    <p>📧 Email: <a href="mailto:nabeelsaleemshaikh@gmail.com">nabeelsaleemshaikh@gmail.com</a><br>
-                    🌐 Website: <a href="https://supacms.com">supacms.com</a><br>
-                    We aim to respond to all privacy-related enquiries within 5 business days.</p>
-                </div>
-
-            </div>
-        </div>
+<!-- LISTINGS -->
+<section id="listings">
+  <div class="section-inner">
+    <div class="listings-head">
+      <div>
+        <div class="section-tag">Featured Properties</div>
+        <h2 class="section-title">Handpicked <span>Luxury</span><br>Listings</h2>
+      </div>
+      <a href="#" class="btn-primary">View All Properties →</a>
     </div>
-
-    <!-- FOOTER -->
-    <footer class="bg-white border-t border-slate-200 relative z-10">
-        <div class="max-w-7xl mx-auto px-6 py-12 flex flex-col md:flex-row justify-between items-center gap-6">
-            <div class="flex items-center gap-2 font-bold text-lg text-dark">
-                <div class="w-6 h-6 bg-brand rounded flex items-center justify-center text-dark text-sm">S</div>
-                Supacms
-            </div>
-            <div class="flex gap-8 text-sm font-semibold text-slate-600">
-                <a href="pricing.html" class="hover:text-dark transition-colors">Pricing</a>
-                <a href="app.html" class="hover:text-dark transition-colors">Dashboard</a>
-                <a href="terms.html" class="hover:text-dark transition-colors">Terms</a>
-                <a href="privacy.html" class="hover:text-dark transition-colors">Privacy</a>
-                <a href="refunds.html" class="hover:text-dark transition-colors">Refunds</a>
-            </div>
-            <div class="text-sm text-slate-400 font-medium">&copy; 2026 Supacms. All rights reserved.</div>
+    <div class="listings-grid">
+      <div class="prop-card fade-up">
+        <div class="prop-img" style="background-image:url('https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=900&q=80')">
+          <span class="prop-badge">New Listing</span>
         </div>
-    </footer>
+        <div class="prop-body">
+          <div class="prop-name">Skyline Penthouse Residences</div>
+          <div class="prop-loc">Downtown Manhattan, NY</div>
+          <div class="prop-meta">
+            <span>🛏 4 Beds</span>
+            <span>🚿 3 Baths</span>
+            <span>📐 4,200 sqft</span>
+          </div>
+          <div class="prop-foot">
+            <div class="prop-price">$4,800,000</div>
+            <button class="btn-sm" onclick="openModal()">Enquire</button>
+          </div>
+        </div>
+      </div>
+      <div class="prop-card fade-up">
+        <div class="prop-img" style="background-image:url('https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?w=600&q=80')">
+          <span class="prop-badge">Exclusive</span>
+        </div>
+        <div class="prop-body">
+          <div class="prop-name">Coastal Villa Retreat</div>
+          <div class="prop-loc">Malibu, California</div>
+          <div class="prop-meta">
+            <span>🛏 5 Beds</span>
+            <span>🚿 4 Baths</span>
+            <span>📐 5,800 sqft</span>
+          </div>
+          <div class="prop-foot">
+            <div class="prop-price">$7,200,000</div>
+            <button class="btn-sm" onclick="openModal()">Enquire</button>
+          </div>
+        </div>
+      </div>
+      <div class="prop-card fade-up">
+        <div class="prop-img" style="background-image:url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&q=80')">
+          <span class="prop-badge">Hot Deal</span>
+        </div>
+        <div class="prop-body">
+          <div class="prop-name">The Glass Pavilion</div>
+          <div class="prop-loc">Beverly Hills, CA</div>
+          <div class="prop-meta">
+            <span>🛏 6 Beds</span>
+            <span>🚿 5 Baths</span>
+            <span>📐 7,000 sqft</span>
+          </div>
+          <div class="prop-foot">
+            <div class="prop-price">$9,500,000</div>
+            <button class="btn-sm" onclick="openModal()">Enquire</button>
+          </div>
+        </div>
+      </div>
+      <div class="prop-card fade-up">
+        <div class="prop-img" style="background-image:url('https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=600&q=80')">
+          <span class="prop-badge">For Rent</span>
+        </div>
+        <div class="prop-body">
+          <div class="prop-name">The Apex Loft</div>
+          <div class="prop-loc">SoHo, New York</div>
+          <div class="prop-meta">
+            <span>🛏 2 Beds</span>
+            <span>🚿 2 Baths</span>
+            <span>📐 2,100 sqft</span>
+          </div>
+          <div class="prop-foot">
+            <div class="prop-price">$18,000/mo</div>
+            <button class="btn-sm" onclick="openModal()">Enquire</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <script>
-        const sections = document.querySelectorAll('.section-anchor');
-        const tocLinks = document.querySelectorAll('.toc-link');
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    tocLinks.forEach(l => l.classList.remove('active'));
-                    const active = document.querySelector(`.toc-link[href="#${entry.target.id}"]`);
-                    if (active) active.classList.add('active');
-                }
-            });
-        }, { rootMargin: '-20% 0px -70% 0px' });
-        sections.forEach(s => observer.observe(s));
-    </script>
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-inner">
+    <div class="about-grid">
+      <div class="about-visual fade-up">
+        <div class="about-accent"></div>
+        <div class="about-img-1">
+          <img src="https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=700&q=80" alt="Luxury Interior"/>
+        </div>
+        <div class="about-img-2">
+          <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=400&q=80" alt="Property"/>
+        </div>
+        <div class="about-years">
+          <strong>15+</strong>
+          <span>Years of Excellence</span>
+        </div>
+      </div>
+      <div class="about-text fade-up">
+        <div class="section-tag">About Elevare</div>
+        <h2 class="section-title">We Craft <span>Extraordinary</span> Living Experiences</h2>
+        <p style="margin-top:24px">At Elevare, we believe a home is more than a structure — it's a statement. Since 2009, we've connected discerning buyers with the world's most remarkable properties, offering white-glove service at every stage.</p>
+        <p>Our portfolio spans urban penthouses, coastal estates, and architectural masterpieces across 30+ cities worldwide. Every listing is personally vetted by our team of luxury property experts.</p>
+        <div class="about-features">
+          <div class="about-feat">
+            <div class="feat-icon">🏆</div>
+            <div><div class="feat-label">Award Winning</div><div class="feat-sub">Top 1% of luxury brokers</div></div>
+          </div>
+          <div class="about-feat">
+            <div class="feat-icon">🔐</div>
+            <div><div class="feat-label">Trusted & Secure</div><div class="feat-sub">Fully licensed & bonded</div></div>
+          </div>
+          <div class="about-feat">
+            <div class="feat-icon">🌐</div>
+            <div><div class="feat-label">Global Network</div><div class="feat-sub">30+ cities worldwide</div></div>
+          </div>
+          <div class="about-feat">
+            <div class="feat-icon">💎</div>
+            <div><div class="feat-label">Premium Only</div><div class="feat-sub">Curated exclusive listings</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section id="process">
+  <div class="section-inner">
+    <div style="text-align:center;max-width:560px;margin:0 auto">
+      <div class="section-tag">How It Works</div>
+      <h2 class="section-title">Your Journey to <span>Perfect</span> Property</h2>
+    </div>
+    <div class="process-grid">
+      <div class="process-step fade-up">
+        <div class="step-num">01</div>
+        <div class="step-icon">💬</div>
+        <div class="step-title">Initial Consultation</div>
+        <p class="step-desc">We begin with a deep-dive conversation to understand your vision, lifestyle, and investment goals.</p>
+      </div>
+      <div class="process-step fade-up">
+        <div class="step-num">02</div>
+        <div class="step-icon">🔍</div>
+        <div class="step-title">Curated Search</div>
+        <p class="step-desc">Our experts handpick properties from our exclusive network matching your exact requirements.</p>
+      </div>
+      <div class="process-step fade-up">
+        <div class="step-num">03</div>
+        <div class="step-icon">🚁</div>
+        <div class="step-title">Private Viewings</div>
+        <p class="step-desc">Experience properties through private tours, virtual walkthroughs, and helicopter overviews.</p>
+      </div>
+      <div class="process-step fade-up">
+        <div class="step-num">04</div>
+        <div class="step-icon">✍️</div>
+        <div class="step-title">Seamless Closing</div>
+        <p class="step-desc">Our legal and financial team manages every detail ensuring a smooth, stress-free transaction.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials">
+  <div class="section-inner">
+    <div style="text-align:center;max-width:520px;margin:0 auto 0">
+      <div class="section-tag">Testimonials</div>
+      <h2 class="section-title">Trusted by <span>Elite</span> Buyers Worldwide</h2>
+    </div>
+    <div class="testimonials-grid">
+      <div class="testi-card fade-up">
+        <div class="stars">★★★★★</div>
+        <div class="testi-quote">"</div>
+        <p class="testi-text">Elevare found us a penthouse that exceeded every expectation. Their attention to detail, from viewings to paperwork, was flawless. Truly a world-class experience.</p>
+        <div class="testi-author">
+          <div class="testi-avatar" style="background:linear-gradient(135deg,#E82C0C,#FF5500)">JM</div>
+          <div><div class="testi-name">James Mitchell</div><div class="testi-role">CEO, Meridian Capital</div></div>
+        </div>
+      </div>
+      <div class="testi-card featured fade-up">
+        <div class="stars" style="color:rgba(255,255,255,0.9)">★★★★★</div>
+        <div class="testi-quote">"</div>
+        <p class="testi-text">We purchased our dream coastal estate through Elevare and couldn't be happier. They handled everything with professionalism and grace. I recommend them to every discerning buyer.</p>
+        <div class="testi-author">
+          <div class="testi-avatar" style="background:rgba(255,255,255,0.2)">SL</div>
+          <div><div class="testi-name">Sofia Laurent</div><div class="testi-role">Fashion Director, Paris</div></div>
+        </div>
+      </div>
+      <div class="testi-card fade-up">
+        <div class="stars">★★★★★</div>
+        <div class="testi-quote">"</div>
+        <p class="testi-text">From the first call to closing, Elevare was exceptional. They understood exactly what we wanted and delivered beyond our imagination. Best investment decision of our lives.</p>
+        <div class="testi-author">
+          <div class="testi-avatar" style="background:linear-gradient(135deg,#FF5500,#E82C0C)">RK</div>
+          <div><div class="testi-name">Rajiv Khanna</div><div class="testi-role">Tech Founder, Dubai</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQS -->
+<section id="faqs">
+  <div class="section-inner">
+    <div class="faqs-grid">
+      <div>
+        <div class="section-tag">Common Questions</div>
+        <h2 class="section-title">Everything You<br>Need to <span>Know</span></h2>
+        <p style="margin-top:20px;color:rgba(245,240,238,0.6);font-size:0.95rem;line-height:1.75;max-width:420px">Have more questions? Our concierge team is available 24/7 to guide you through every step of the process.</p>
+        <button class="btn-primary" style="margin-top:28px" onclick="openModal()">Speak to an Expert →</button>
+      </div>
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">What types of properties does Elevare specialize in? <span class="faq-arrow">+</span></button>
+          <div class="faq-a">We specialize exclusively in premium and ultra-luxury residential properties including penthouses, estate homes, waterfront villas, and architectural masterpieces across major global cities. Our portfolio typically ranges from $2M to $100M+.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">Do you work with international buyers? <span class="faq-arrow">+</span></button>
+          <div class="faq-a">Absolutely. We have a dedicated international division serving buyers from 40+ countries. Our multilingual team handles cross-border transactions, legal compliance, tax structuring, and currency management to ensure seamless purchases.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">What does your consultation process involve? <span class="faq-arrow">+</span></button>
+          <div class="faq-a">Your initial consultation is complimentary and typically 60-90 minutes. We discuss your lifestyle preferences, investment objectives, budget parameters, and timeline. From there, we create a personalized property brief to guide our search.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">How do you ensure listing exclusivity? <span class="faq-arrow">+</span></button>
+          <div class="faq-a">Many of our properties are off-market and exclusively available through our network. We work directly with developers, private sellers, and estate attorneys to source properties before they reach the public market.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">What are your service fees? <span class="faq-arrow">+</span></button>
+          <div class="faq-a">Our buyer representation is typically compensated through the seller's commission structure, meaning many of our services come at no direct cost to you. We'll outline the full fee structure during your consultation with complete transparency.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="cta">
+  <div class="grid-overlay"></div>
+  <div class="cta-inner">
+    <div class="cta-wrap">
+      <div class="cta-text">
+        <div class="section-tag">Get Started Today</div>
+        <h2 class="cta-title">Ready to Find Your Dream Property?</h2>
+        <p class="cta-sub">Book a private consultation with our luxury property experts and gain access to the most exclusive listings in the world.</p>
+      </div>
+      <div class="cta-actions">
+        <button class="btn-white" onclick="openModal()">Book Consultation</button>
+        <a href="#listings" class="btn-outline-white">Browse Listings</a>
+      </div>
+    </div>
+    <div class="cta-bg-num">2025</div>
+  </div>
+</section>
+
+<!-- NEWSLETTER -->
+<section id="newsletter">
+  <div class="section-inner">
+    <div class="newsletter-wrap">
+      <div class="newsletter-text">
+        <div class="section-tag">Stay Informed</div>
+        <h2 class="section-title">Get Exclusive <span>Market</span> Insights</h2>
+        <p>Receive curated property alerts, luxury market reports, and off-market opportunities directly in your inbox.</p>
+      </div>
+      <div class="newsletter-form">
+        <input type="email" placeholder="Your email address"/>
+        <button class="btn-primary">Subscribe →</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="#" class="logo"><span class="logo-icon"></span> Elevare</a>
+        <p>Redefining the luxury real estate experience for the world's most discerning clientele since 2009.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <a href="#">About Us</a>
+        <a href="#">Our Team</a>
+        <a href="#">Careers</a>
+        <a href="#">Press</a>
+        <a href="#">Awards</a>
+      </div>
+      <div class="footer-col">
+        <h4>Properties</h4>
+        <a href="#">For Sale</a>
+        <a href="#">For Rent</a>
+        <a href="#">New Developments</a>
+        <a href="#">Off-Market</a>
+        <a href="#">International</a>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <a href="#">+1 212 555 0178</a>
+        <a href="#">hello@elevare.com</a>
+        <a href="#">432 Park Avenue, NY</a>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 Elevare Real Estate. All rights reserved.</p>
+      <div class="social-links">
+        <a href="#" class="social-link">𝕏</a>
+        <a href="#" class="social-link">in</a>
+        <a href="#" class="social-link">ig</a>
+        <a href="#" class="social-link">yt</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- CONSULTATION MODAL -->
+<div class="modal-overlay" id="modal" onclick="closeModalOutside(event)">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <div class="modal-tag">Free Consultation</div>
+    <h2 class="modal-title">Let's Find Your Perfect Property</h2>
+    <p class="modal-sub">Our luxury advisors will reach out within 24 hours.</p>
+    <div class="form-row">
+      <div class="form-group"><label>First Name</label><input type="text" placeholder="John"/></div>
+      <div class="form-group"><label>Last Name</label><input type="text" placeholder="Smith"/></div>
+    </div>
+    <div class="form-group"><label>Email Address</label><input type="email" placeholder="john@example.com"/></div>
+    <div class="form-group"><label>Phone Number</label><input type="tel" placeholder="+1 (555) 000-0000"/></div>
+    <div class="form-row">
+      <div class="form-group">
+        <label>Property Type</label>
+        <select>
+          <option>Penthouse</option>
+          <option>Villa / Estate</option>
+          <option>Apartment</option>
+          <option>Waterfront</option>
+          <option>Commercial</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Budget Range</label>
+        <select>
+          <option>$1M – $3M</option>
+          <option>$3M – $7M</option>
+          <option>$7M – $15M</option>
+          <option>$15M+</option>
+        </select>
+      </div>
+    </div>
+    <div class="form-group"><label>Tell Us More</label><textarea placeholder="Describe your dream property, preferred location, timeline..."></textarea></div>
+    <button class="btn-submit" onclick="submitForm()">Request Consultation →</button>
+  </div>
+</div>
+
+<script>
+  // Nav scroll
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 60);
+  });
+
+  // Hamburger
+  function toggleNav() {
+    document.getElementById('navLinks').classList.toggle('open');
+  }
+
+  // Modal
+  function openModal() {
+    document.getElementById('modal').classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeModal() {
+    document.getElementById('modal').classList.remove('active');
+    document.body.style.overflow = '';
+  }
+  function closeModalOutside(e) {
+    if (e.target === document.getElementById('modal')) closeModal();
+  }
+  function submitForm() {
+    closeModal();
+    setTimeout(() => alert('Thank you! Our team will contact you within 24 hours.'), 200);
+  }
+
+  // FAQ accordion
+  function toggleFaq(btn) {
+    const item = btn.parentElement;
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  }
+
+  // Fade-up on scroll
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+  // Keyboard close modal
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+</script>
 </body>
 </html>
